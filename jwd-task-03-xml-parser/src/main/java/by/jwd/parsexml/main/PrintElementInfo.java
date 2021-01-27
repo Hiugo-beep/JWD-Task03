@@ -4,8 +4,10 @@ import by.jwd.parsexml.entity.Element;
 
 public class PrintElementInfo {
 	public static void print(Element element) {
-		if(element != null) {
-			System.out.println(element.getElementContent());
+		boolean isEmpty = element == null ;
+		if( !isEmpty ) {
+			TreeTraversal tr = new TreeTraversalImpl();
+			System.out.println(tr.getTreeContent(element));
 		}
 	}
 }
