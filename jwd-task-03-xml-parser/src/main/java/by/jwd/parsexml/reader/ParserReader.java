@@ -1,7 +1,6 @@
 package by.jwd.parsexml.reader;
-
-import java.util.List;
+import java.io.IOException;
 
 public interface ParserReader {
-	public String readFile(String fileName);
+	public String readFile(String fileName) throws IOException ;
 }
