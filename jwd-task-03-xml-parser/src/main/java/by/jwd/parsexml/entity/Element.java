@@ -102,17 +102,19 @@ public class Element {
 	@Override
 	public String toString() {
 		String childNamesToPrint = "";
-		for(int i = 0;i < this.childElements.size();i++ ) {
-			childNamesToPrint += this.childElements.get(i).getName();
-			childNamesToPrint += "\n";
-		}
+		if(childElements!=null)
+			for(int i = 0;i < this.childElements.size();i++ ) {
+				childNamesToPrint += this.childElements.get(i).getName();
+				childNamesToPrint += "\n";
+			}
 		
 		String attributeToPrint = "";
-		for(int i =0; i< this.attributes.size();i++) {
-			attributeToPrint += this.attributes.get(i).getName() ;
-			attributeToPrint += " = ";
-			attributeToPrint += this.attributes.get(i).getContent() ;
-		}
+		if(attributes!=null)
+			for(int i =0; i< this.attributes.size();i++) {
+				attributeToPrint += this.attributes.get(i).getName() ;
+				attributeToPrint += " = ";
+				attributeToPrint += this.attributes.get(i).getContent() ;
+			}
 		String contentToPrint = "";
 		if(this.content != null) {
 			contentToPrint = this.content;
