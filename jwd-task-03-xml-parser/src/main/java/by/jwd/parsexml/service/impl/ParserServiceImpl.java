@@ -17,7 +17,6 @@ public class ParserServiceImpl implements ParserService{
 		ParserDAO parserDAO = factory.getParserDAO();
 		
 		Element rootElement = parserDAO.parse(fileName);
-		//return rootElement;	
-		return null;
+		return rootElement;	
 	}
 }
