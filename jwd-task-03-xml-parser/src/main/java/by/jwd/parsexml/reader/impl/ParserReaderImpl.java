@@ -10,14 +10,12 @@ import by.jwd.parsexml.reader.ParserReader;
 public class ParserReaderImpl implements ParserReader{
 	private static int numberBytesToRead = 500;
 	private int bytesRead;
-	private byte[] buffer;
 	private String fileRead;
 	private int bytesAvailable;
 	
 	public ParserReaderImpl(){
 		this.bytesAvailable = 0;
 		this.bytesRead = numberBytesToRead;
-		this.buffer = new byte [numberBytesToRead];
 		this.fileRead = "";
 	}
 	
@@ -47,6 +45,7 @@ public class ParserReaderImpl implements ParserReader{
 				bytesAvailable = numberBytesToRead;
 
 			int offsetByteToRead = 0;
+			byte[] buffer = new byte [numberBytesToRead];
 			bytesRead = inFile.read( buffer, offsetByteToRead, bytesAvailable );
 
 			fileRead += new String( buffer, "UTF-8" );
