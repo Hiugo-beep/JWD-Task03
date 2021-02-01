@@ -1,5 +1,6 @@
 package by.jwd.parsexml.reader.impl;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -8,14 +9,12 @@ import by.jwd.parsexml.reader.ParserReader;
 
 public class ParserReaderImpl implements ParserReader{
 	private static int numberBytesToRead = 500;
-	private int offsetByteToRead;
 	private int bytesRead;
 	private byte[] buffer;
 	private String fileRead;
 	private int bytesAvailable;
 	
 	public ParserReaderImpl(){
-		this.offsetByteToRead = 0;
 		this.bytesAvailable = 0;
 		this.bytesRead = numberBytesToRead;
 		this.buffer = new byte [numberBytesToRead];
@@ -47,14 +46,13 @@ public class ParserReaderImpl implements ParserReader{
 			if( bytesAvailable > numberBytesToRead ) 
 				bytesAvailable = numberBytesToRead;
 
+			int offsetByteToRead = 0;
 			bytesRead = inFile.read( buffer, offsetByteToRead, bytesAvailable );
-			
-			offsetByteToRead += bytesRead;
+
 			fileRead += new String( buffer, "UTF-8" );
 		}
 		inFile.close();
 		this.filterSpaces();
 		return fileRead;
 	}
-
 }
